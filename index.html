@@ -35,8 +35,8 @@
       const url = urlParams.get('url'); // 获取传入的 'url' 参数
 
       if (url) {
-        // 如果有传入 URL 参数，生成二维码
-        generateQRCode(url);
+        const decodedUrl = decodeURIComponent(url); // 解码 URL
+        generateQRCode(decodedUrl); // 生成二维码
       } else {
         // 如果没有传入 URL 参数，提示用户
         document.getElementById('qr-code-container').innerHTML = '<p>未提供有效的 URL 参数。</p>';
